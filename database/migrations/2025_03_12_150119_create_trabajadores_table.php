@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('trabajadores', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre',100);
+            $table->string('apellido',100);
+            $table->string('correo',80);
+            $table->string('telefono',15);
+            $table->string('direcion',100);
+            $table->foreignId('id_departamento')->constrained('departamentos')->onUpdate('cascade')->onDelete('restrict');
             $table->timestamps();
         });
     }

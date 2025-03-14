@@ -17,7 +17,13 @@ class TrabajadoresFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre'=>$this->faker->name,
+            'apellido'=>$this->faker->lastName,
+            'correo'=>$this->faker->email,
+            'telefono'=>$this->faker->phoneNumber,
+            'direcion'=>$this->faker->address,
+            'id_departamento'=>$this->faker->numberBetween(1,6)
+
         ];
     }
 }

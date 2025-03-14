@@ -17,7 +17,7 @@ class DepartamentosFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre'=>$this->faker->jobTitle
         ];
     }
 }
