@@ -55,8 +55,9 @@ class TrabajadoresController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Trabajadores $trabajador)
+    public function show($id)
     {
+        $trabajador = Trabajadores::find($id);
         return response()->json(['status'=>true,'data'=>$trabajador]);
     }
 

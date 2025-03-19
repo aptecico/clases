@@ -38,8 +38,9 @@ class DepartamentosController extends Controller
     }
 
    
-    public function show(Departamentos $departamento)
+    public function show($id)
     {
+        $departamento = Departamentos::find($id);
         return response()->json(['status'=>true,'data'=>$departamento]);
     }
 

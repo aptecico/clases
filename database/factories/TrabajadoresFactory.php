@@ -20,7 +20,7 @@ class TrabajadoresFactory extends Factory
             'nombre'=>$this->faker->name,
             'apellido'=>$this->faker->lastName,
             'correo'=>$this->faker->email,
-            'telefono'=>$this->faker->phoneNumber,
+            'telefono'=>$this->faker->numerify('3#########'),
             'direcion'=>$this->faker->address,
             'id_departamento'=>$this->faker->numberBetween(1,6)
 

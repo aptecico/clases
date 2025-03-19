@@ -48,7 +48,12 @@ class AuthController extends Controller
             'email'=>'required|email|max:100',
             'password'=>'required'
         ];
-        $validador=Validator::make($request->input(),$campos);
+        $mensajes = [
+            'required' => 'El campo :attribute es requerido.',
+            'email' => 'El campo :attribute debe ser un correo válido.',
+            'max' => 'El campo :attribute no puede superar los :max caracteres.'
+        ];
+        $validador=Validator::make($request->input(),$campos,$mensajes);
         if($validador->fails()){
             return response()->json([
                 'status'=>false,
@@ -56,7 +61,7 @@ class AuthController extends Controller
             ],400);   
         }
         //en caso de pasar la validacion
-        if(!Auth::attempt($request->only('name','password'))){
+        if(!Auth::attempt($request->only('email','password'))){
             return response()->json([
                 'status'=>false,
                 'errors'=>['No autorizado']
@@ -72,7 +77,7 @@ class AuthController extends Controller
     }
 
     public function logout(){
-     /* auth()->user()->tokens()->delete();
+      /*auth()->user()->tokens()->delete();
       return response()->json([
         'status'=>true,
         'message'=>'Usuario cerrado sessión correctamente',
