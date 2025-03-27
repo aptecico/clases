@@ -45,8 +45,9 @@ class DepartamentosController extends Controller
     }
 
     
-    public function update(Request $request, Departamentos $departamentos)
+    public function update(Request $request, $id)
     {
+        $departamento = Departamentos::find($id);
         //validar los campos que se envian al servidor
         $campos=['nombre'=>'required|string|min:1|max:100'];
         $validador=Validator::make($request->input(),$campos);
@@ -57,8 +58,7 @@ class DepartamentosController extends Controller
                 'errors'=>$validador->errors()->all()
             ],400);
         }
-
-        $departamentos->update($request->input());
+        $departamento->update($request->input());
         return response()->json([
             'status'=>true,
             'message'=>'Departamento actualizado satisfactoriamente'
@@ -66,9 +66,16 @@ class DepartamentosController extends Controller
     }
 
     
-    public function destroy(Departamentos $departamentos)
+    public function destroy($id)
     {
-        $departamentos->delete();
+        $departamento = Departamentos::find($id);
+        if (!$departamento) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Departamento no encontrado'
+            ], 404);
+        }
+        $departamento->delete();
         return response()->json([
             'status'=>true,
             'message'=>'Departamento eliminado satisfactoriamente'
