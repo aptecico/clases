@@ -1,7 +1,7 @@
 //conamndo en terminal
-
 php artisan vendor:publish --tag=cors
-//archiv cors
+
+//archivo cors en la carpeta config config/cors.php
   return [
     'paths' => ['api/*', 'sanctum/csrf-cookie'],
     'allowed_methods' => ['*'],
