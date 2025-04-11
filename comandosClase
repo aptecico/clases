@@ -1,0 +1,55 @@
+//conamndo en terminal
+
+php artisan vendor:publish --tag=cors
+//archiv cors
+  return [
+    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'allowed_methods' => ['*'],
+    'allowed_origins' => ['*'],
+    'allowed_origins_patterns' => [],
+    'allowed_headers' => ['*'],
+    'exposed_headers' => [],
+    'max_age' => 0,
+    'supports_credentials' => true,
+];
+
+
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Cross-Origin Resource Sharing (CORS) Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Here you may configure your settings for cross-origin resource sharing
+    | or "CORS". This determines what cross-origin operations may execute
+    | in web browsers. You are free to adjust these settings as needed.
+    |
+    | To learn more: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+    |
+    */
+
+    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+
+    'allowed_methods' => ['*'],
+
+    'allowed_origins' => ['*'],
+
+    'allowed_origins_patterns' => [],
+
+    'allowed_headers' => ['*'],
+
+    'exposed_headers' => [],
+
+    'max_age' => 0,
+
+    'supports_credentials' => true,
+
+];
+
+//comandos en el arhcivo .env
+APP_URL=https://11183b16-9aa7-4c78-a023-89246ce777d8-00-2uthi0ixo3270.picard.replit.dev:8000
+SANCTUM_STATEFUL_DOMAINS=11183b16-9aa7-4c78-a023-89246ce777d8-00-2uthi0ixo3270.picard.replit.dev
+SESSION_DOMAIN=11183b16-9aa7-4c78-a023-89246ce777d8-00-2uthi0ixo3270.picard.replit.dev
